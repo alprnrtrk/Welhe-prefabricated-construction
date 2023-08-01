@@ -1,0 +1,661 @@
+
+
+.navbar {
+    @include wrap-big-fluid;
+    @include flex(row, space-between, center);
+
+    position: fixed;
+    z-index: 1000;
+
+    transform-style: preserve-3d;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: var(--navbar-height);
+
+    background-color: $color--body-background;
+
+    &__logo {
+        @include flex(row, flex-start, center);
+
+        max-width: 30%;
+        width: 100%;
+        height: 100%;
+
+        img {
+            @include aspect(300 , 96);
+
+            width: 70%;
+
+            object-fit: cover;
+
+            @include devices(xl) {
+                width: 100%;
+            }
+        }
+
+        @include devices(md) {
+            max-width: 50%;
+        }
+    }
+
+    &__toggler {
+        display: none;
+
+        width: var(--navbar-togglersize);
+        height: var(--navbar-togglersize);
+
+        background-color: transparent;
+        border: 0;
+
+        &.active {
+            span {
+                &:nth-child(1) {
+                    transform: translateY(13px) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: translateY(-13px) rotate(-45deg);
+                }
+            }
+        }
+
+        span {
+            display: block;
+
+            width: calc(var(--navbar-togglersize) - 5px);
+            height: 3px;
+
+            margin: calc(calc(var(--navbar-togglersize) / 5) / 2) 0;
+
+            background-color: $color--body-foreground;
+
+            border-radius: 10px;
+
+            transition: $global--transition;
+        }
+
+        @include devices(xl) {
+            @include flex(column, center, center);
+        }
+    }
+
+    &__content {
+        @include flex(row, flex-end, center);
+
+        position: relative;
+
+        gap: calc(var(--navbar-gap));
+
+        width: 100%;
+        height: 100%;
+
+        nav {
+            >ul {
+                @include flex;
+
+                gap: var(--navbar-gap);
+
+                list-style: none;
+
+                >li {
+                    >a {
+                        position: relative;
+                        z-index: 1000;
+
+                        overflow: hidden;
+
+                        padding-bottom: 7px;
+                        margin-bottom: -7px;
+
+                        font-size: 17px;
+                        font-weight: $fontWeight--semi-bold;
+
+                        transition: $global--transition;
+
+                        &::before {
+                            content: "";
+
+                            position: absolute;
+
+                            left: -100%;
+                            bottom: 0;
+
+                            display: block;
+
+                            width: 100%;
+                            height: 2px;
+
+                            background-color: $color--primary;
+
+                            transition: $global--transition;
+                        }
+                    }
+
+                    &:hover {
+                        a {
+                            color: $color--primary;
+
+                            &::before {
+                                left: 0;
+                            }
+                        }
+
+                        .mega-menu {
+                            opacity: 1;
+
+                            top: 0;
+
+                            pointer-events: all;
+                        }
+
+                        .active{
+                            >a {
+                                transform: translateX(-20px);
+
+                                color: $color--primary;
+
+                                &::after {
+                                    opacity: 1;
+                                }
+                            }
+
+                            ul {
+                                opacity: 1;
+
+                                pointer-events: all;
+
+                                padding-left: 30px;
+                            }
+                        }
+                    }
+                }
+
+                @include devices(xl) {
+                    @include flex(column, center, center);
+                }
+            }
+        }
+
+        .mega-menu {
+            @include flex(row, space-between, flex-start);
+
+            position: absolute;
+            z-index: 0;
+
+            pointer-events: none;
+
+            top: -100%;
+
+            opacity: 0;
+
+            left: 0;
+
+            padding: 50px;
+            padding-right: calc(100vw - $wrapperBig--size);
+
+            padding-top: calc(var(--navbar-height) + 50px);
+
+            width: calc(100% + calc(100vw - $wrapperBig--size));
+            height: calc(400px + var(--navbar-height));
+
+            background-color: $color--body-background;
+
+            transition: $global--transition;
+
+            &__content {
+                @include flex();
+
+                width: 60%;
+                height: 100%;
+
+                ul:not(.sub-menu) {
+                    @include flex(column, flex-start, flex-start);
+
+                    gap: 17px;
+
+                    position: relative;
+
+                    height: 100%;
+
+                    list-style: none;
+
+                    >li {
+                        width: 100%;
+
+                        >a {
+                            color: $color--body-titleColor;
+
+                            text-transform: uppercase;
+                            text-align: right;
+
+                            font-size: 20px;
+                            font-weight: $fontWeight--semi-bold;
+
+                            transition: $global--transition;
+
+                            &::after {
+                                content: ">";
+
+                                margin-left: 20px;
+                                opacity: 0;
+
+                                transition: $global--transition;
+
+
+                                @include devices(xl) {
+                                    display: none;
+                                }
+                            }
+
+                            @include devices(xl) {
+                                text-align: center;
+                            }
+                        }
+
+                        &:hover {
+                            >a {
+                                transform: translateX(-20px);
+
+                                color: $color--primary;
+
+                                &::after {
+                                    opacity: 1;
+                                }
+                            }
+
+                            ul {
+                                opacity: 1;
+
+                                pointer-events: all;
+
+                                padding-left: 30px;
+                            }
+                        }
+
+                        ul {
+                            @include flex(column);
+
+                            gap: 17px;
+
+                            position: absolute;
+
+                            opacity: 0;
+
+                            pointer-events: none;
+
+                            top: 0;
+                            left: 100%;
+
+                            height: 100%;
+
+                            list-style: none;
+
+                            border-left: 1px solid red;
+
+                            transition: $global--transition;
+
+                            li {
+                                a {
+                                    width: max-content;
+
+                                    font-size: 17px;
+                                    font-weight: $fontWeight--normal;
+
+                                    color: $color--body-titleColor;
+
+                                    transition: $global--transition;
+
+                                    &:hover {
+                                        color: $color--primary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include devices(xl) {
+                    @include flex(column, center, center);
+
+                    width: 100%;
+                }
+            }
+
+            &__img {
+                width: 40%;
+                height: 100%;
+
+                overflow: hidden;
+
+                img {
+                    opacity: .3;
+
+                    width: 100%;
+                    height: 100%;
+
+                    object-fit: cover;
+
+                    transition: $global--transition;
+
+                    &:hover {
+                        opacity: 1;
+
+                        transform: scale(1.1)
+                    }
+                }
+
+                @include devices(xl) {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+
+                top: 0;
+
+                pointer-events: all;
+            }
+
+            @include devices(xxl) {
+                position: fixed;
+
+                top: var(--navbar-height);
+                left: 0;
+
+                width: 100vw;
+
+                box-shadow: 0 10px 10px -5px transparentize($color--body-foreground, .75);
+            }
+
+            @include devices(xl) {
+                @include flex(column-reverse, center, center);
+
+                display: none;
+
+                position: static;
+
+                padding: 0;
+            }
+        }
+
+        .accs {
+            @include flex(row, center, center);
+
+            gap: calc(var(--navbar-gap) / 4);
+            height: 100%;
+
+            cursor: pointer;
+
+            &__search {
+                @include center;
+
+                position: relative;
+
+                height: 50%;
+
+                padding-right: 10px;
+
+                border-right: 1px solid lighten($color--body-foreground, 70%);
+
+                &:hover {
+                    img {
+                        transform: rotate(45deg);
+                    }
+
+                    .search-from {
+                        opacity: 1;
+
+                        pointer-events: all;
+
+                        transform: translateX(-50%) translateY(10px);
+
+                        @include devices(xl) {
+                            left: 100%;
+                            transform: translateX(-100%) translateY(10px);
+                        }
+                    }
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+
+                    transition: $global--transition;
+                }
+
+                .search-from {
+                    @include flex(row, center, center);
+
+                    gap: 10px;
+
+                    position: absolute;
+
+                    pointer-events: none;
+
+                    opacity: 0;
+
+                    z-index: 1000;
+
+                    top: 100%;
+                    left: 50%;
+
+                    transform: translateX(-50%);
+
+                    padding: 15px;
+
+                    background-color: $color--body-background;
+
+                    border: 1px solid lighten($color--body-foreground, 70%);
+
+                    transition: $global--transition;
+
+                    input {
+                        height: 100%;
+
+                        padding: 5px;
+
+                        background-color: $color--section-evenColor;
+                        color: darken($color--section-evenColor, 40%);
+
+                        border: 1px solid darken($color--section-evenColor, 20%);
+                    }
+
+                    button {
+                        display: block;
+
+                        height: 100%;
+
+                        padding: 5px;
+
+                        background-color: $color--primary;
+                        color: $color--body-background;
+
+                        border: 0;
+
+                        cursor: pointer;
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "";
+
+                        position: absolute;
+
+                        top: 0;
+                        left: calc(50% - 5px);
+
+                        transform: translate(-50%, -100%);
+
+                        display: block;
+
+                        width: 0px;
+                        height: 0px;
+
+                        border: 6px solid transparent;
+                        border-bottom-color: $color--body-background;
+
+                        @include devices(xl) {
+                            left: calc(100% - 20px);
+
+                            transform: translate(-50%, -100%);
+                        }
+                    }
+
+                    &::after {
+                        z-index: -1;
+                        border: 8px solid transparent;
+                        border-bottom-color: lighten($color--body-foreground, 70%);
+                    }
+
+                }
+
+                @include devices(xl) {
+                    border: 0;
+                }
+            }
+
+            &__lang {
+                position: relative;
+
+                .current-lang {
+                    text-transform: uppercase;
+
+                    font-size: 17px;
+                    font-weight: $fontWeight--semi-bold;
+
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    ul {
+                        opacity: 1;
+
+                        pointer-events: all;
+
+                        transform: translateX(-50%) translateY(10px);
+                    }
+                }
+
+                ul {
+                    @include flex(column, flex-start, flex-start);
+
+                    gap: calc(var(--navbar-gap) / 4);
+
+                    opacity: 0;
+
+                    position: absolute;
+                    pointer-events: none;
+
+                    top: 100%;
+                    left: 50%;
+
+                    transform: translateX(-50%);
+
+                    padding: 15px;
+
+                    list-style: none;
+
+                    background-color: $color--body-background;
+
+                    border: 1px solid lighten($color--body-foreground, 70%);
+
+
+                    transition: $global--transition;
+
+                    &::before,
+                    &::after {
+                        content: "";
+
+                        position: absolute;
+
+                        top: 0;
+                        left: 50%;
+
+                        transform: translate(-50%, -100%);
+
+                        display: block;
+
+                        width: 0px;
+                        height: 0px;
+
+                        border: 6px solid transparent;
+                        border-bottom-color: $color--body-background;
+                    }
+
+                    &::after {
+                        z-index: -1;
+                        border: 8px solid transparent;
+                        border-bottom-color: lighten($color--body-foreground, 70%);
+                    }
+
+                    li {
+                        .lang {
+                            text-transform: uppercase;
+
+                            font-size: 17px;
+                            font-weight: $fontWeight--semi-bold;
+
+                            color: lighten($color--body-foreground, 70%);
+
+                            transition: $global--transition;
+
+                            &:hover {
+                                color: $color--body-foreground;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include devices(xl) {
+                @include flex(row-reverse, space-between, center);
+
+                order: -1;
+
+                width: 100%;
+                height: 50px;
+            }
+        }
+
+        @include devices(xl) {
+            @include flex(column, flex-start, center);
+
+            position: fixed;
+            z-index: 500;
+
+            top: 0;
+            left: 0;
+
+            transform: translateZ(-10px) translateY(calc(-100% - var(--navbar-height)));
+
+            padding: 25px 20px;
+
+            width: 100%;
+            min-height: auto;
+            height: auto;
+
+            background-color: $color--body-background;
+
+            box-shadow: 0 10px 10px -10px transparentize($color--body-foreground, .75);
+
+            transition: $global--transition;
+
+            &.active {
+                top: calc(var(--navbar-height));
+                transform: translate(0)
+            }
+        }
+    }
+
+    @include devices(xl) {
+        @include flex(row, space-between, center);
+    }
+}

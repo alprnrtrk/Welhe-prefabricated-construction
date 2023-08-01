@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Put your description here.">
+
+    <title>Hakkımızda</title>
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="navbar__logo">
+            <a aria-label="link to home page" href="index.html">
+                <img src="img/logo/brandLogo.svg" alt="brand logo">
+            </a>
+        </div>
+        <div class="navbar__content">
+            <nav>
+                <ul>
+                    <!-- tekrar edecek element <li> -->
+                    <li>
+                        <a href="index.html">Anasayfa</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Kurumsal</a>
+                    </li>
+                    <li>
+                        <a href="products.html">Ürünler</a>
+                        <!-- eğer elementin alt menüsü olacka ise <li> içerisinde ".mega-menu" elementi eklenecek -->
+                        <div class="mega-menu">
+                            <div class="mega-menu__content">
+                                <ul>
+                                    <!-- tekrar edecek element <li> -->
+                                    <li class="active">
+                                        <!-- eğer elementin alt menüsü olacka ise <li> içerisinde ".mega-menu" elementi eklenecek -->
+                                        <a href="products-alt.html">modüler yapılar</a>
+                                        <ul class="sub-menu">
+                                            <!-- tekrar edecek element <li> -->
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Şantiye Binalar</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Ofis Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Sosyal Tesis Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Hastane</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Okul</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Yemekhane Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik Yatakhane Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">Prefabrik WC — Duş Binaları</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="products-alt.html">prefabrik evler</a>
+                                    </li>
+                                    <li>
+                                        <a href="products-alt.html">prefabrik yapılar</a>
+
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Şantiye Binalar</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Ofis Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Sosyal Tesis Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Hastane</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Okul</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Yemekhane Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik Yatakhane Binaları</a>
+                                            </li>
+                                            <li>
+                                                <a href="products-alt.html">2 Prefabrik WC — Duş Binaları</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="products-alt.html">tinyhouse yapılar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu__img">
+                                <img src="img/mega-menu/mega-menu-1.png" alt="resim açıklaması">
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="services.html">Hizmetler</a>
+                    </li>
+                    <li>
+                        <a href="referances.html">Referanslar</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="accs">
+                <!-- iptal edilen arama çubuğu -->
+
+                <!-- <div class="accs__search">
+                    <img src="img/icons/search-icon.svg" alt="search icon">
+
+                    <form class="search-from" name="search form" aria-label="search form" action="">
+                        <input aria-label="search" name="name" type="text">
+                        <button type="submit">Ara</button>
+                    </form>
+                </div> -->
+                <div class="accs__lang">
+                    <h2 aria-label="site language" class="current-lang">tr</h2>
+
+                    <ul>
+                        <li>
+                            <!-- dil değiştirme direkt o dilin sitesine gidecek şekilde yapıldı -->
+                            <a href="404.html" class="lang">en</a>
+                        </li>
+                        <li>
+                            <a href="404.html" class="lang">fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="btn btn--navbar" href="contact-us.html">Teklif Alın</a>
+        </div>
+        <button data-role="toggler" data-target=".navbar__content" aria-label="mobile navbar toggler"
+            class="navbar__toggler">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <section class="page-top page-top page-top--dark">
+
+        <ul class="breadcumb">
+            <li>
+                <a href="index.html">anasayfa</a>
+            </li>
+            <li>
+                <a href="blog-news.html">blog</a>
+            </li>
+            <li>
+                <a href="blog-news-item.html">haber adı</a>
+            </li>
+        </ul>
+        <div class="page-top__title">
+            <h1>haber & blog</h1>
+        </div>
+    </section>
+
+    <section class="blog-news blog-news--item">
+        <div class="blog-news--item__intro">
+            <div class="text">
+                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation…</p>
+            </div>
+            <div class="image">
+                <img src="img/blog-news/blgnws1.png" alt="resim açıklama">
+            </div>
+        </div>
+        <div class="blog-news--item__content">
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero’s De <br> <br> Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.” The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn’t distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in <br> <br> popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it’s seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.</p>
+            <img src="img/blog-news/bni1.png" alt="resim açıklaması">
+            <img src="img/blog-news/bni2.png" alt="resim açıklaması">
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero’s De <br> <br> Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with: “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.” The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn’t distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content. The passage experienced a surge in <br> <br> popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it’s seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.</p>
+        </div>
+        <div class="blog-news--item__others">
+            <div class="blog-news__title">
+                <h2>Diğer İçerikler</h2>
+            </div>
+    
+            <div class="swiper blog-news__slider">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <img src="img/news/n1.png" alt="resim açıklama">
+                        <h2>Lorem ipsum dolor</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat…</p>
+                        <a class="btn btn--arrow" href="blog-news-item.html">Devamını Gör</a>
+    
+                        <span class="date">
+                            <h2>May</h2>
+                            <h3>023</h3>
+                        </span>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="img/news/n1.png" alt="resim açıklama">
+                        <h2>Lorem ipsum dolor</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat…</p>
+                        <a class="btn btn--arrow" href="blog-news-item.html">Devamını Gör</a>
+    
+                        <span class="date">
+                            <h2>May</h2>
+                            <h3>023</h3>
+                        </span>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="img/news/n1.png" alt="resim açıklama">
+                        <h2>Lorem ipsum dolor</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat…</p>
+                        <a class="btn btn--arrow" href="blog-news-item.html">Devamını Gör</a>
+    
+                        <span class="date">
+                            <h2>May</h2>
+                            <h3>023</h3>
+                        </span>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="img/news/n1.png" alt="resim açıklama">
+                        <h2>Lorem ipsum dolor</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat…</p>
+                        <a class="btn btn--arrow" href="blog-news-item.html">Devamını Gör</a>
+    
+                        <span class="date">
+                            <h2>May</h2>
+                            <h3>023</h3>
+                        </span>
+                    </li>
+                    <li class="swiper-slide">
+                        <img src="img/news/n1.png" alt="resim açıklama">
+                        <h2>Lorem ipsum dolor</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat…</p>
+                        <a class="btn btn--arrow" href="blog-news-item.html">Devamını Gör</a>
+    
+                        <span class="date">
+                            <h2>May</h2>
+                            <h3>023</h3>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__upper">
+            <a href="404.html">
+                <img src="img/logo/brandLogo.svg" alt="şirket logous">
+            </a>
+            <form action="">
+                <label for="">Haber Bültenimize Abone Olun</label>
+                <input type="text" name="e-mail" aria-label="e-mail" placeholder="E-Posta Adresibiz">
+                <button><img src="img/icons/arrow.svg" alt="resim açıklaması"></button>
+                </input>
+            </form>
+        </div>
+
+        <div class="footer__below">
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="links">
+                <div class="each">
+                    <h2>Kurumsal</h2>
+                    <ul>
+                        <li>
+                            <a href="about.html">Hakkımızda</a>
+                        </li>
+                        <li>
+                            <a href="about.html">Kalite Politikamız</a>
+                        </li>
+                        <li>
+                            <a href="about.html">Sertifikalar</a>
+                        </li>
+                        <li>
+                            <a href="about.html">Kariyer</a>
+                        </li>
+                        <li>
+                            <a href="about.html">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="each">
+                    <h2>Ürünler</h2>
+                    <ul>
+                        <li>
+                            <a href="products-alt.html">Modüler Yapı</a>
+                        </li>
+                        <li>
+                            <a href="products-alt.html">Prefabrik Evler</a>
+                        </li>
+                        <li>
+                            <a href="products-alt.html">Prefabrik Yapılar</a>
+                        </li>
+                        <li>
+                            <a href="products-alt.html">TinyHouse Yapılar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="each">
+                    <h2>Hizmetler</h2>
+                    <ul>
+                        <li>
+                            <a href="services.html">Mimarlık Hizmeti</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Yapı Tasarımı</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="each">
+                    <h2>Bize Ulaşın</h2>
+                    <ul>
+                        <li>
+                            <a href="404.html">T: 1223 45 67 89</a>
+                        </li>
+                        <li>
+                            <a href="404.html">M: info@welhe.com</a>
+                        </li>
+                        <li>
+                            <a href="404.html">02442580 office: 2 Kingdom Street, London W2 6BD</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="links__bottom">
+        <h2>© 2023 Welhe</h2>
+
+        <ul class="terms">
+            <li>
+                <a target="_blank" href="404.html">Kullanım Şartları</a>
+            </li>
+            <li>
+                <a target="_blank" href="404.html">Gizlilik Politikası</a>
+            </li>
+        </ul>
+
+        <ul class="social">
+            <li>
+                <a target="_blank" href="404.html">
+                    <img src="img/icons/inst.svg" alt="resim açıklaması">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="404.html">
+                    <img src="img/icons/linkedin.svg" alt="resim açıklaması">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="404.html">
+                    <img src="img/icons/face.svg" alt="resim açıklaması">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="404.html">
+                    <img src="img/icons/youtube.svg" alt="resim açıklaması">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="404.html">
+                    <img src="img/icons/whatsapp.svg" alt="resim açıklaması">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/query.js"></script>
+    <script src="js/swipper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        var blogNewsSlider = new Swiper(".blog-news__slider", {
+
+            slidesPerView: 1,
+            spaceBetween: 15,
+            loop: true,
+            centeredSlides: false,
+            
+            breakpoints: {
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+
+                },
+            },
+        });
+    </script>
+
+</body>
+
+</html>

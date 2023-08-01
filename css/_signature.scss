@@ -1,0 +1,117 @@
+.signature{
+    @include flex(row, center, flex-end);
+    
+    width: 140.61px;
+    height: 44.53px;
+
+    transform: scale(.8);
+
+    >*{
+        transition: $global--transition;
+    }
+
+    .p{
+        opacity: 0;
+
+        width: 24px;
+
+        transform: translateX(100%);
+    }
+
+    .inti{
+        opacity: 0;
+
+        width: 56px;
+
+        margin: 0 calc(-56px / 2);
+    }
+
+    .o{
+        width: 25px;
+
+        margin: 0 3px;
+
+        path{
+            fill: $color--passive;
+
+            transition: $global--transition;
+        }
+
+        transform: translateX(30%);
+        
+        .empty{
+            fill: $color--body-background!important;
+
+            transition: $global--transition;
+        }
+    }
+
+    .x{
+        width: 23px;
+
+        transform: translateX(-25%) translateY(-1.7px);
+
+        path{
+            fill: $color--passive;
+
+            transition: $global--transition;
+        }
+    }
+
+    &:hover{
+        >*{
+            transition-delay: 0s;
+        }
+
+        .p{
+            opacity: 1;
+    
+            transform: translateX(0);
+        }    
+
+        .inti{
+            opacity: 1;
+
+            margin: 0;
+        }
+        
+        .x{
+            transform: translateX(0) translateY(-1.5px);
+
+            path{
+                fill: #252b5b;
+
+                transition-delay: 0s;
+            }
+        }
+        
+        .o{
+            transform: translateX(0);
+
+            .empty{
+                opacity: 0;
+
+                transition-delay: 0s;
+            }
+
+            path{
+                fill: #e63c65;
+                
+                transition-delay: 0s;
+            }
+        }
+    }
+
+    @include devices(xl){
+        transform: translateX(-9%);
+
+        transition: $global--transition;
+        transition-delay: 1.5s;
+
+        &:hover{
+            transform: translateX(0);
+
+            transition-delay: 0s;
+        }
+    }
+}

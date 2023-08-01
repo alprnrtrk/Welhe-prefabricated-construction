@@ -1,0 +1,106 @@
+.products--page{
+    @include wrap;
+
+    ul{
+        @include flex;
+
+        gap: 20px;
+
+        transform: translateY(-150px);
+
+        list-style: none;
+        
+        li{
+            @include flex(column, center, center);
+
+            gap: 20px;
+
+            width: calc(100% / 4);
+
+            background-color: $color--body-background;
+
+            border: 1px solid $color--section-evenColor;
+
+            transition: $global--transition;
+
+            .wrapper{
+                @include aspect(36,21);
+
+                width: 100%;
+
+                overflow: hidden;
+
+                padding: 10px 10px 0 10px;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    
+                    object-fit: cover;
+
+                    transition: $global--transition;
+                }
+            }
+
+            img{
+                width: 90px;
+                height: 90px;
+
+                object-fit: contain;
+            }
+
+            h2{
+                text-transform: uppercase;
+                
+                font-size: 23px;
+                font-weight: $fontWeight--semi-bold;
+                
+                color: $color--body-titleColor;
+            }
+
+            a{
+                width: 100%;
+              
+                padding: 20px 0;
+                
+                background-color: $color--section-evenColor;
+                color: $color--body-titleColor;
+                
+                font-weight: $fontWeight--semi-bold;
+
+                transition: $global--transition;
+
+                &::after{
+                    filter: brightness(0);
+                }
+            }
+
+            &:hover{
+                background-color: $color--section-evenColor;
+
+                .wrapper{
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+
+                a{
+                    background-color: $color--primary;
+                    color: $color--body-background;
+
+                    &:after{
+                        filter: brightness();
+                    }
+                }
+            }
+
+            @include devices(xl){
+                width: 100%;
+            }
+        }
+
+        @include devices(xl){
+            @include flex(column);
+        }
+    }
+}

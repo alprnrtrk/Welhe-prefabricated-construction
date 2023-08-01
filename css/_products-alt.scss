@@ -1,0 +1,91 @@
+.products--list {
+    @include wrap;
+
+    ul {
+        @include flex(row, flex-start, flex-start, wrap);
+
+        overflow: hidden;
+
+        width: 0;
+        height: 0;
+        opacity: 0;
+
+        gap: 50px 15px;
+
+        margin-right: -15px;
+
+        transform: translateY(-150px);
+
+        list-style: none;
+
+        transition: opacity $global--transition;
+
+        &.active{
+            width: auto;
+            height: auto;
+            opacity: 1;
+        }
+
+        li {
+            width: calc(100% / 3 - 15px);
+
+            img{
+                width: 100%;
+
+                margin-bottom: 18px;
+            }
+
+            h2{
+                max-width: 300px;
+                width: 100%;
+
+                padding-bottom: 14px;
+                margin-bottom: 14px;
+
+                border-bottom: 1px solid $color--primary;
+
+                white-space: nowrap;
+
+                font-size: 21px;
+                font-weight: $fontWeight--semi-bold;
+                color: $color--body-titleColor;
+            }
+
+            .bottom{
+                @include flex(row, space-between);
+
+                a{
+                    font-size: 15px;
+                    font-weight: $fontWeight--semi-bold;
+                    
+                    color: $color--body-titleColor;
+                    
+                    &::after{
+                        background-image: url("../img/icons/r-arrow-p.svg");
+                    }
+                }
+                span{
+                    text-transform: uppercase;
+
+                    font-size: 15px;
+                    font-weight: $fontWeight--semi-bold;
+
+                    color: $color--body-titleColor;
+                }
+            }
+
+            @include devices(xl){
+                width: 100%;
+            }
+        }
+
+        @include devices(xl){
+            @include flex(column, center, center);
+
+            gap: 50px;
+            margin: 0 0 50px 0;
+
+            transform: translate(0);
+        }
+    }
+}

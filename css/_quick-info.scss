@@ -1,0 +1,131 @@
+.quick-info{
+    @include wrap;
+
+    margin-top: 70px;
+    margin-bottom: 172px;
+
+    &__title{
+        margin-bottom: 40px;
+
+        h2{
+            max-width: 400px;
+            width: 1005%;
+            
+            padding-bottom: 12px;
+
+            font-size: 25px;
+            font-weight: $fontWeight--semi-bold;
+
+            color: $color--body-titleColor;
+
+            border-bottom: 1px solid $color--line;
+
+            @include devices(xl){
+                max-width: 100%;
+                
+                text-align: center;
+            }
+        }
+    }
+
+    &__content{
+        @include flex(row, space-between, center);
+
+        gap: 140px;
+
+        .img{
+            position: relative;
+
+            max-width: 40%;
+            width: 100%;
+
+            img{
+                width: 100%;
+            }
+
+            &::before, &::after{
+                content: "";
+
+                position: absolute;
+
+                top: 0;
+                right: 0;
+
+                display: block;
+
+                width: 256px;
+                height: 211px;
+
+                background-image: url("../img/icons/w-icon.svg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+
+                @include devices(xl){
+                    display: none;
+                }
+            }
+
+            &::after{
+                z-index: -1;
+
+                transform: translateX(37%);
+
+                background-image: url("../img/icons/w-icon-grey.svg");
+            }
+
+                
+            @include devices(xl){
+                max-width: 100%;
+            }
+        }
+
+        .text{
+            @include flex(column, flex-start, flex-start);
+
+            gap: 14px;
+
+            max-width: 60%;
+            width: 100%;
+
+            h2{
+                max-width: 400px;
+                width: 100%;
+
+                font-size: 28px;
+                font-weight: $fontWeight--semi-bold;
+
+                text-transform: uppercase;
+
+                color: $color--body-titleColor;
+            }
+
+            p{
+                font-size: 18px;
+                font-weight: $fontWeight--normal;
+            }
+
+            a{
+                margin-top: 30px;
+
+                @include devices(xl){
+                    margin: auto;
+                }
+            }
+
+            @include devices(xl){
+                max-width: 100%;
+            }
+        }
+
+        @include devices(xl){
+            @include flex(column, center, center);
+
+            gap: 20px;
+        }
+    }
+    
+    @include devices(xl){
+        margin-bottom: 70px;
+    }
+}

@@ -1,0 +1,259 @@
+.top-projects {
+    @include wrap;
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    &__title {
+        @include flex(row, space-between, center);
+
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+
+        border-bottom: 1px solid $color--line;
+
+        h2 {
+            font-size: 30px;
+            font-weight: $fontWeight--semi-bold;
+
+            color: $color--body-titleColor;
+
+            @include devices(xl) {
+                text-align: center;
+            }
+        }
+
+        .slider-buttons {
+            @include flex();
+
+            gap: 40px;
+
+            &__left,
+            &__right {
+                border: 0;
+
+                background: transparent;
+
+                cursor: pointer;
+
+                transition: $global--transition;
+            }
+
+            &__left {
+                &:hover {
+                    transform: translateX(-5px);
+                }
+            }
+
+            &__right {
+                &:hover {
+                    transform: translateX(5px);
+                }
+            }
+        }
+
+        @include devices(xl) {
+            @include flex(column, center, center);
+
+            gap: 40px;
+        }
+    }
+
+    &__slider {
+        overflow: visible;
+
+        .swiper {
+            &-slide {
+                max-width: 606px;
+                width: 100%;
+                height: 470px;
+
+                .wrapper {
+                    @include aspect(60,36);
+
+                    position: relative;
+
+                    overflow: hidden;
+
+                    width: 100%;
+
+                    &:hover{
+                        img{
+                            opacity: 1;
+                        }
+
+                        .content{
+                            transform: translate(0);
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+
+                        opacity: 0.5;
+
+                        transition: $global--transition;
+
+                        @include devices(xl){
+                            height: 50%;
+                        }
+                    }
+
+                    .content {
+                        @include flex(column, flex-start, flex-start);
+
+                        position: absolute;
+
+                        gap: 20px;
+
+                        top: 0;
+                        left: 0;
+
+                        transform: translateX(-110%);
+
+                        width: calc(100% / 3);
+                        height: 100%;
+
+                        padding: 20px;
+
+                        background-color: transparentize($color--special, 0.25);
+                        color: $color--body-background;
+
+                        transition: 0.6s;
+
+                        .each {
+                            @include flex(row, flex-start, center);
+
+                            width: 100%;
+
+                            gap: 10px;
+
+                            padding-bottom: 20px;
+
+                            border-bottom: 1px solid $color--body-background;
+
+                            &:nth-child(3){
+                                border: 0;
+                            }
+
+                            img{
+                                width: 20px;
+                                height: 20px;
+                            }
+                            
+                            h2 {
+                                font-size: 18px;
+                                font-weight: $fontWeight--light;
+                            }
+
+                            h3 {
+                                font-size: 15px;
+                                font-weight: $fontWeight--thin;
+                            }
+
+                            @include devices(xl) {
+                                @include flex(row, flex-start, center, wrap);
+
+                                border: 0;
+                            }
+                        }
+
+                        a {
+                            margin-top: auto;
+                        }
+
+                        @include devices(xl) {
+                            top: 50%;
+                            left: 0;
+                            transform: translate(0);
+
+                            gap: 10px;
+
+                            width: 100%;
+                            height: 50%;
+
+                            background-color: $color--special;
+                        }
+                    }
+
+                    @include devices(xl) {
+                        height: 500px;
+                    }
+                }
+
+
+                .text{
+                    margin-top: 20px;
+
+                    h2{
+                        max-width: 70%;
+                        width: 100%;
+
+                        padding-bottom: 10px;
+                        margin-bottom: 10px;
+
+                        font-size: 25px;
+                        font-weight: $fontWeight--semi-bold;
+
+                        color: $color--body-titleColor;
+
+
+                        @include devices(xl){
+                            max-width: 100%;
+
+                            text-align: center;
+                        }
+                    }
+
+                    h3{
+                        @include flex(row, flex-start, center);
+
+                        font-size: 15px;
+                        font-weight: $fontWeight--medium;
+
+                        img{
+                            width: 20px;
+                            height: 20px;
+
+                            filter: brightness(-100%);
+                        }
+
+
+
+                        @include devices(xl){
+                            @include center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .mask {
+            position: absolute;
+
+            z-index: 1000000;
+
+            top: 0;
+            left: 0;
+
+            transform: translateX(-100%);
+
+            max-width: 606px;
+            width: 100%;
+            min-height: 470px;
+
+            background-color: $color--body-background;
+
+            @include devices(xl){
+                height: 600px;
+            }
+        }
+    }
+
+    @include devices(xl){
+        margin-bottom: 200px;
+    }
+}

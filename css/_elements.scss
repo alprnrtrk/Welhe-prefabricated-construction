@@ -1,0 +1,220 @@
+.btn {
+    display: inline-block;
+
+    &--navbar {
+        @include center;
+
+        position: relative;
+        isolation: isolate;
+
+        width: max-content;
+        height: 100%;
+        padding: 0 100px;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        font-size: 17px;
+        font-weight: $fontWeight--semi-bold;
+
+        background-color: $color--primary;
+        color: $color--body-background;
+
+        &:hover {
+            &::before {
+                width: 75%;
+                height: 75%;
+            }
+        }
+
+        &::before {
+            content: "";
+
+            position: absolute;
+            z-index: -1;
+
+            display: block;
+
+            width: 70%;
+            height: 70%;
+
+            border: 1px solid $color--body-background;
+
+            transition: $global--transition;
+        }
+
+        @include devices(xxl) {
+            padding: 0 50px;
+        }
+
+        @include devices(xl) {
+            width: 100%;
+            height: auto;
+
+            padding: 25px 0;
+            margin: 50px auto 0 auto;
+        }
+    }
+
+    &--arrow {
+        @include center;
+
+        &:hover {
+            &::after {
+                margin-left: 25px;
+            }
+        }
+
+        &::after {
+            content: "";
+
+            display: block;
+
+            width: 30px;
+            height: 30px;
+
+            margin-left: 20px;
+
+            background-image: url("../img/icons/arrow.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+
+            transition: $global--transition;
+        }
+    }
+
+    &--download {
+        @include center;
+
+        &:hover {
+            &::before {
+                transform: translateY(5px);
+            }
+        }
+
+        &::before {
+            content: "";
+
+            display: block;
+
+            width: 30px;
+            height: 30px;
+
+            margin-right: 20px;
+
+            background-image: url("../img/icons/download.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+
+            transition: $global--transition;
+        }
+    }
+
+    &--zoom {
+        @include center;
+
+        
+        font-size: 17px;
+        font-weight: $fontWeight--semi-bold;;
+
+        background: transparent;
+        color: $color--body-titleColor;
+        
+        border: 0;
+
+        cursor: pointer;
+
+        &:hover {
+            &::before {
+                transform: scale(1.1);
+            }
+        }
+
+        &::before {
+            content: "";
+
+            display: block;
+
+            width: 30px;
+            height: 30px;
+
+            margin-right: 20px;
+
+            background-image: url("../img/icons/zoom.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+
+            transition: $global--transition;
+        }
+    }
+
+    &--primary {
+        position: relative;
+
+        padding: 10px 20px;
+
+        background-color: $color--primary;
+        color: $color--body-background;
+
+        font-weight: $fontWeight--semi-bold;
+
+        border: 2px solid transparent;
+
+        border-radius: 100px;
+
+        transition: $global--transition;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    &--white{
+        position: relative;
+
+        padding: 10px 20px;
+        
+        background-color: $color--body-background;
+        color: $color--body-titleColor;
+
+        font-weight: $fontWeight--semi-bold;
+
+        border: 2px solid transparent;
+
+        border-radius: 100px;
+
+        transition: $global--transition;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    &--squere{
+        padding: 17px 30px;
+
+        background-color: $color--body-background;
+
+        border: 1px solid $color--squere-button;
+
+        font-size: 17px;
+        font-weight: $fontWeight--semi-bold;
+
+        transition: $global--transition;
+
+        cursor: pointer;
+
+        &:hover{
+            background-color: lighten($color--squere-button, 60%);
+        }
+
+        &.active{
+            background-color: $color--squere-button;
+
+            color: $color--body-background;
+        }
+    }
+}

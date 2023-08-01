@@ -1,0 +1,152 @@
+.products{
+    @include wrap-fluid;
+
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    background-color: transparentize($color--section-evenColor, .8);
+
+    &__title{
+        @include flex(row, space-between, center);
+
+        margin-bottom: 50px;
+
+        color: $color--body-titleColor;
+
+        h2{
+            font-size: 30px;
+            font-weight: $fontWeight--semi-bold;
+
+            @include devices(xl){
+                margin-bottom: 20px;
+            }
+        }
+
+        ul{
+            @include flex;
+
+            gap: 30px;
+
+            list-style: none;
+
+            li{
+                button{
+                    font-size: 19px;
+
+                    font-weight: $fontWeight--semi-bold;
+
+                    background-color: transparent;
+
+                    color: $color--passive;
+
+                    border: 0;
+
+                    cursor: pointer;
+
+                    transition: $global--transition;
+
+                    &.active{
+                        color: $color--primary;
+                    }
+
+                    &:hover{
+                        color: $color--primary;
+                    }
+                }
+            }
+
+            @include devices(xl){
+                @include flex(column, center, center);
+            }
+        }
+
+        @include devices(xl){
+            @include flex(column, center, center);
+        }
+    }
+
+    &__content{
+        @include flex(column, center, center);
+
+        ul{
+            @include flex;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            width: 0;
+            height: 0;
+
+            gap: 16px;
+
+            list-style: none;
+
+            transition: opacity $global--transition;
+
+            &.active{
+                opacity: 1;
+
+                pointer-events: all;
+
+                width: auto;
+                height: auto;
+            }
+
+            li{
+                @include flex(column, center, center);
+
+                gap: 30px;
+
+                overflow: hidden;
+
+                padding-bottom: 30px;
+
+                background-color: $color--section-evenColor--dark;
+
+                transition: $global--transition;
+
+                .wrapper{
+                    @include aspect(49,36);
+
+                    overflow: hidden;
+
+                    width: 100%;
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+
+                        transition: $global--transition;
+                    }
+                }
+
+                h2{
+                    font-size: 25px;
+                    font-weight: $fontWeight--semi-bold;
+
+                    color: $color--body-titleColor;
+
+                    text-align: center;
+                }
+
+                &:hover{
+
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            @include devices(xl){
+                @include flex(column, center, center);
+            }
+        }
+
+        a{
+            margin-top: 20px;
+        }
+    }
+}

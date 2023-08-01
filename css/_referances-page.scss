@@ -1,0 +1,48 @@
+.referances{
+    &--page{
+
+        margin-top: 0;
+
+        ul{
+            @include flex(row, flex-start, flex-start, wrap);
+
+            gap: 10px;
+
+            li{
+                list-style: none;
+
+                width: calc(100% / 4 - 10px );
+
+                transform: translateY(-50%);
+
+                a{
+                    @include center;
+                    @include aspect(37,19);
+
+                    width: 100%;
+
+                    background-color: $color--body-background;
+
+                    border: 5px solid $color--section-evenColor;         
+
+                    img{
+                        width: 75%;
+
+                        transition: $global--transition;
+
+                    }
+
+                    &:hover{
+                        img{
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+
+                @include devices(xl){
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

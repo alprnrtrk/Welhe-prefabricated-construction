@@ -1,0 +1,482 @@
+.product--element {
+    @include wrap-big;
+
+    .element--slider {
+        position: relative;
+
+        padding-bottom: 100px;
+
+        transform: translateY(-150px);
+
+        .swiper-wrapper {}
+
+        .swiper-slide {
+            img {
+                @include aspect(16,8);
+
+                width: 100%;
+
+                object-fit: cover;
+
+                @include devices(xl) {
+                    @include aspect(1,1);
+                }
+            }
+        }
+    }
+
+    .element--thumbs {
+        position: absolute;
+
+        width: 50%;
+
+        padding: 20px;
+
+        bottom: 0;
+        right: 50px;
+
+        background-color: $color--section-evenColor;
+
+        .swiper-wrapper {}
+
+        .swiper-slide {
+            opacity: .5;
+
+            cursor: pointer;
+
+            transition: $global--transition;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &-active {
+                opacity: 1;
+            }
+
+            img {
+                @include aspect(1,1);
+
+                width: 100%;
+
+                object-fit: cover;
+
+                border-radius: 16px;
+            }
+        }
+
+        @include devices(xl) {
+            display: none;
+        }
+    }
+}
+
+.product--content {
+    @include wrap;
+
+    padding-bottom: 50px;
+    margin-top: -200px;
+
+    h2 {
+        max-width: 470px;
+        width: 100%;
+
+        margin-bottom: 30px;
+
+        font-size: 32px;
+        font-weight: $fontWeight--semi-bold;
+
+        color: $color--body-titleColor;
+
+        @include devices(xl) {
+            text-align: center;
+        }
+    }
+
+    p {
+        max-width: 1000px;
+        width: 100%;
+
+        font-size: 17px;
+        font-weight: $fontWeight--normal;
+
+        color: $color--body-titleColor;
+
+        @include devices(xl) {
+            text-align: center;
+        }
+    }
+}
+
+.product--plan{
+    @include wrap-fluid;
+    @include flex(row);
+
+    gap: 80px;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    background-color: transparentize($color--section-evenColor, .8);
+
+    &__img{
+        @include flex(column, flex-start, flex-start);
+
+        position: relative;
+
+        width: 50%;
+
+        padding: 30px;
+
+        background-color: $color--body-background;
+
+        img{
+            width: 100%;
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+
+    &__content{
+        @include flex(column, flex-start, flex-start);
+
+        gap: 40px;
+
+        width: 50%;
+
+        h2{
+            font-size: 32px;
+            font-weight: $fontWeight--semi-bold;
+            
+            color: $color--body-titleColor;
+            
+            @include devices(xl){
+                width: 100%;
+
+                text-align: center;
+            }
+        }
+
+        p{
+            font-size: 17px;
+            font-weight: $fontWeight--normal;
+            
+            color: $color--body-titleColor;
+        }
+
+        .buttons{
+            @include flex(row, space-between, center);
+
+            width: 100%;
+
+            @include devices(xl){
+                @include flex(column, center, center);
+
+                gap: 20px;
+            }
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+    @include devices(xl){
+        @include flex(column, center, center);
+    }
+}
+
+.product--details{
+    @include wrap;
+    @include flex(row, flex-start, flex-start ,wrap);
+
+    gap: 50px 100px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    >h2{
+        width: 100%;
+
+        font-size: 32px;
+        font-weight: $fontWeight--semi-bold;
+
+        color: $color--body-titleColor
+    }
+
+    &__content{
+        width: 50%;
+
+        ul{
+            li{
+                @include flex();
+
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+
+                border-bottom: 1px solid $color--passive;
+
+                h2{
+                    width: 50%;
+
+                    font-size: 17px;
+                    font-weight: $fontWeight--bold;
+
+                    color: $color--body-titleColor;
+                }
+
+                h3{
+                    width: 50%;
+
+                    font-size: 17px;
+                    font-weight: $fontWeight--normal;
+
+                    color: $color--body-titleColor;
+                }
+            }
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+
+    &__img{
+        width: calc(50% - 100px);
+
+        img{
+            width: 100%;
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+
+    @include devices(xl){
+        @include flex(column, center, center);
+    }
+}
+
+.product--tabs{
+    @include wrap;
+
+    margin-bottom: 50px;
+
+    max-width: calc($wrapper--size + 75px);
+
+    background-color: transparentize($color--section-evenColor, .8);
+
+    .tabs{
+        @include flex;
+
+        li{
+            width: calc(100% / 4);
+
+            list-style: none;
+
+            button{
+                width: 100%;
+
+                padding: 50px;
+
+                font-size: 20px;
+                font-weight: $fontWeight--semi-bold;
+
+                background-color: $color--body-background;
+                color: $color--body-titleColor;
+
+                border: 0;
+
+                cursor: pointer;
+
+                transition: $global--transition;
+
+                &:hover {
+                    background-color: transparentize($color--body-background, .6)
+                }
+
+                &.active{
+                    background: transparent;
+
+                    @include devices(xl){
+                        color: $color--primary;
+                    }
+                }
+
+                @include devices(xl){
+                    padding: 10px;
+
+                    background-color: transparent;
+
+                    font-size: 20px;
+                }
+            }
+            @include devices(xl){
+                width: 100%;
+            }
+        }
+
+        @include devices(xl){
+            @include flex(column, center, center);
+        }
+    }
+
+    .content{
+        overflow: hidden;
+
+        li{
+            width: 0;
+            height: 0;
+
+            padding: 0;
+
+            opacity: 0;
+
+            transition: opacity $global--transition;
+
+            &.active{
+                width: auto;
+                height: auto;
+
+                padding: 50px 50px 100px 50px;
+
+                opacity: 1;
+
+                @include devices(xl){
+                    padding: 0;
+                }
+            }
+
+            p{
+                font-size: 17px;
+                font-weight: $fontWeight--normal;
+
+                color: $color--body-titleColor;
+            }
+        }
+
+        @include devices(xl){
+            margin-top: 50px;
+        }
+    }
+}
+
+.product--others{
+    @include wrap-big;
+
+    &__title {
+        @include flex(row, space-between, center);
+
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+
+        border-bottom: 1px solid $color--line;
+
+        h2 {
+            font-size: 30px;
+            font-weight: $fontWeight--semi-bold;
+
+            color: $color--body-titleColor;
+
+            @include devices(xl) {
+                text-align: center;
+            }
+        }
+
+        .slider-buttons {
+            @include flex();
+
+            gap: 40px;
+
+            &__left,
+            &__right {
+                border: 0;
+
+                background: transparent;
+
+                cursor: pointer;
+
+                transition: $global--transition;
+            }
+
+            &__left {
+                &:hover {
+                    transform: translateX(-5px);
+                }
+            }
+
+            &__right {
+                &:hover {
+                    transform: translateX(5px);
+                }
+            }
+        }
+
+        @include devices(xl) {
+            @include flex(column, center, center);
+
+            gap: 40px;
+        }
+    }
+
+    &__slider{
+        margin-bottom: 50px;
+
+        ul{
+            list-style: none;
+            li {
+                width: 100%;
+                img{
+                    width: 100%;
+    
+                    margin-bottom: 18px;
+                }
+    
+                h2{
+                    max-width: 300px;
+                    width: 100%;
+    
+                    padding-bottom: 14px;
+                    margin-bottom: 14px;
+    
+                    border-bottom: 1px solid $color--primary;
+    
+                    white-space: nowrap;
+    
+                    font-size: 21px;
+                    font-weight: $fontWeight--semi-bold;
+                    color: $color--body-titleColor;
+                }
+    
+                .bottom{
+                    @include flex(row, space-between);
+    
+                    a{
+                        font-size: 15px;
+                        font-weight: $fontWeight--semi-bold;
+                        
+                        color: $color--body-titleColor;
+                        
+                        &::after{
+                            background-image: url("../img/icons/r-arrow-p.svg");
+                        }
+                    }
+                    span{
+                        text-transform: uppercase;
+    
+                        font-size: 15px;
+                        font-weight: $fontWeight--semi-bold;
+    
+                        color: $color--body-titleColor;
+                    }
+                }
+    
+                @include devices(xl){
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,197 @@
+.types{
+    @include wrap;
+    @include flex;
+
+    gap: 50px;
+
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    &__content{
+        @include flex(row, space-between, flex-start, wrap);
+
+        width: 50%;
+
+        h2{
+            margin-bottom: 50px;
+
+            font-size: 30px;
+            font-weight: $fontWeight--semi-bold;
+
+            color: $color--body-titleColor;
+
+            @include devices(xl){
+                text-align: center;
+
+                margin-bottom: 20px;
+            }
+        }
+
+        .main, .sub{
+            width: 50%;
+
+            list-style: none;
+
+            li{
+                button{
+                    position: relative;
+
+                    padding: 20px 0 20px 40px;
+    
+                    font-size: 25px;
+                    font-weight: $fontWeight--medium;
+
+                    text-align: left;
+    
+                    color: $color--body-titleColor;
+    
+                    background-color: transparent;
+                    
+                    border: 0;
+    
+                    cursor: pointer;
+                    
+                    transition: $global--transition;
+
+                    &::before{
+                        content: "";
+
+                        position: absolute;
+
+                        display: block;
+                        
+                        top: 0;
+                        left: 0;
+
+                        width: 1px;
+                        height: 100%;
+
+                        background-color: $color--passive;
+
+                        transition: width $global--transition;
+
+                        @include devices(xl){
+                            display: none;
+                        }
+                    }
+
+                    &.active{
+                        color: $color--primary;
+
+                        &::before{
+                            width: 7px;
+
+                            background-color: $color--primary;
+                        }
+                    }
+
+                    @include devices(xxl){
+                        padding-left: 20px;
+
+                        font-size: 20px;
+                    }
+
+                    @include devices(xl){
+                        width: 100%;
+
+                        padding: 5px;
+
+                        text-align: center;
+                    }
+                }
+            }
+
+            @include devices(xl){
+                width: 100%;
+
+                padding-bottom: 20px;
+
+                border-bottom: 2px solid $color--passive;
+            }
+        }
+
+        .sub{  
+            visibility: hidden;
+
+            width: 0;
+            height: 0;
+
+            opacity: 0;
+
+            transition: $global--transition opacity;
+
+            &.active{
+                width: 50%;
+                height: auto;
+
+                visibility: visible;
+
+                opacity: 1;
+
+                
+                @include devices(xl){
+                    width: 100%;
+                }
+            }
+
+            li{
+                button{
+                    transition: opacity $global--transition;
+                }
+            }
+
+            @include devices(xl){
+                margin-top: 20px;
+            }
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+
+    &__img{
+        width: 50%;
+
+        ul{
+            list-style: none;
+            
+            li{
+                opacity: 0;
+
+                width: 0;
+                height: 0;
+
+                transition: opacity $global--transition;
+
+                &.active{
+                    @include aspect(70,37);
+                    
+                    opacity: 1;
+
+                    width: 100%;
+                    height: auto;
+
+                    @include devices(xl){
+                        @include aspect(1,1);
+                    }
+                }
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @include devices(xl){
+            width: 100%;
+        }
+    }
+
+    @include devices(xl){
+        @include flex(column, center, center);
+    }
+}

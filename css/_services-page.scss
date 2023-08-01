@@ -1,0 +1,105 @@
+.services {
+
+    &--page {
+        @include wrap;
+
+        .services__content {
+            @include flex(column);
+            
+            gap: 70px;
+
+            .each {
+                @include flex(row, space-between, flex-end, wrap);
+
+                gap: 50px;
+
+                width: 100%;
+
+                transform: translateY(-100px);
+
+                &:nth-child(even){
+                    @include flex(row-reverse, space-between, flex-end, wrap);
+                }
+
+                .wrapper {
+                    @include center;
+                    @include aspect(74,50);
+
+                    width: calc(50% - 70px);
+                    
+                    border: 7px solid $color--section-evenColor;
+
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+
+                        transition: $global--transition;
+                    }
+
+                    &:hover {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    @include devices(xl) {
+                        @include aspect(1,1);
+
+                        width: 100%;
+                    }
+                }
+
+                .content{
+                    @include flex(column);
+
+                    gap: 20px;
+
+                    width: 50%;
+
+                    h2 {
+                        font-size: 25px;
+                        font-weight: $fontWeight--semi-bold;
+    
+                        color: $color--body-titleColor;
+                    }
+    
+                    p {
+                        font-size: 18px;
+                        font-weight: $fontWeight--normal;
+                    }
+    
+                    a {
+                        justify-content: flex-start;
+    
+                        font-size: 19px;
+                        font-weight: $fontWeight--semi-bold;
+    
+                        color: $color--body-background;
+    
+                        &::after {
+                            filter: brightness(0);
+                        }
+                    }
+
+                    @include devices(xl) {
+                        @include flex(column, center, center);
+    
+                        width: 100%;
+
+                        text-align: center;
+                    }
+                }
+            }
+
+            @include devices(xl) {
+                @include flex(column);
+
+                gap: 50px;
+            }
+        }
+    }
+}

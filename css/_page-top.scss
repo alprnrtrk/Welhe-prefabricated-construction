@@ -1,0 +1,181 @@
+.page-top {
+    @include wrap-big-fluid;
+
+    position: relative;
+
+    isolation: isolate;
+
+    min-height: 400px;
+    height: 100%;
+
+    padding-top: 25px;
+    margin-top: var(--navbar-height);
+
+    background-color: transparentize($color--section-evenColor, .8);
+
+
+    &--dark{
+        background-color: transparentize($color--section-evenColor, .3);
+    }
+
+    &--only-bread{
+        min-height: auto;
+
+        background-color: transparentize($color--section-evenColor, .8);
+
+        .breadcumb {
+            margin-bottom: 0!important;
+        }
+
+        @include devices(xl){
+            min-height: auto!important;
+        }
+    }
+
+    &--tiny{
+        min-height: 200px;
+
+        @include devices(xl){
+            min-height: auto!important;
+
+            padding: 30px 0;
+        }
+    }
+
+    .mask {
+        position: absolute;
+
+        z-index: -1;
+
+        top: 50%;
+        right: calc(calc(100vw - $wrapper--size) / 2);
+
+        transform: translateY(-50%);
+
+        @include devices(xl) {
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .breadcumb {
+        @include flex;
+
+        max-width: 340px;
+        width: 100%;
+
+        margin-bottom: 70px;
+        padding-bottom: 17px;
+
+        border-bottom: 1px solid $color--passive;
+
+        list-style: none;
+
+        li {
+            @include flex;
+
+            &:first-child {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &::before {
+                content: "";
+
+                display: inline-block;
+
+                width: 15px;
+                height: 15px;
+
+                margin-left: 18px;
+                margin-right: 10px;
+
+                background-image: url("../img/icons/arrow-thich.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+            }
+
+            a {
+                white-space: nowrap;
+
+                font-size: 14px;
+                font-weight: $fontWeight--normal;
+
+                color: $color--passive;
+            }
+        }
+
+        @include devices(xl) {
+            display: none;
+        }
+    }
+
+    &__title {
+        @include flex(row, space-between, center);
+
+        h1 {
+            margin-left: 100px;
+
+            text-transform: uppercase;
+
+            font-size: 26px;
+            font-weight: $fontWeight--semi-bold;
+
+            color: $color--body-titleColor;
+
+            @include devices(xl) {
+                margin: 0;
+
+                text-align: center;
+            }
+        }
+
+        .buttons {
+            @include center;
+
+            @include devices(xl) {
+                @include flex(column, center, center);
+
+                gap: 20px
+            }
+        }
+
+        .serial{
+            @include flex(row, flex-end, flex-end);
+
+            gap: 5px;
+
+            h2{
+                text-transform: uppercase;
+
+                font-size: 21px;
+                font-weight: $fontWeight--light;
+
+                color: $color--body-titleColor;
+            }
+
+            span{
+                text-transform: uppercase;
+                
+                font-size: 21px;
+                font-weight: $fontWeight--semi-bold;
+
+                color: $color--body-titleColor;
+            }
+        }
+
+        @include devices(xl) {
+            @include flex(column, center, center);
+
+            gap: 20px;
+        }
+    }
+
+    @include devices(xl) {
+        min-height: 300px;
+    }
+}

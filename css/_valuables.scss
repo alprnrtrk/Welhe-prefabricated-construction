@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$color--body-background: #ffffff;
+$color--body-foreground: #000000;
+$color--body-titleColor: #3f4a5f;
+
+$color--primary: #e7411a;
+$color--secondary: #f6f8fb;
+$color--special: #01193C;
+
+$color--section-evenColor: #D2DAEA;
+$color--section-evenColor--dark: #E1E7F4;
+
+$color--line: #707070;
+
+$color--passive: #777F90;
+
+$color--squere-button: #2B4160;
+
+$color--input-bg: #eeeeee;
+
+$font--body: 'Montserrat', sans-serif;
+
+$fontWeight--thin: 100;
+$fontWeight--extra-light: 200;
+$fontWeight--light: 300;
+$fontWeight--normal: 400;
+$fontWeight--medium: 500;
+$fontWeight--semi-bold: 600;
+$fontWeight--bold: 700;
+$fontWeight--ultra-bold: 800;
+$fontWeight--black: 900;
+
+$global--transition: .3s;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1500px;
+
+$wrapper--size: 1510px;
+$wrapper--mobilePadding: 20px;
+$wrapperBig--size: 1640px;
